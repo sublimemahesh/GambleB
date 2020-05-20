@@ -28,7 +28,7 @@ $GROUP = new Group($id);
 
         <!-- Bootstrap Css --> 
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-
+        <link href="lib/datetimepicker/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css"/>
         <!-- main css --> 
         <link href="css/style.css" type="text/css" rel="stylesheet">
         <link href="css/responsive.css" type="text/css" rel="stylesheet">
@@ -103,17 +103,17 @@ $GROUP = new Group($id);
                                     <div class="form-group">
                                         <div class="form-line"> 
                                             <?php
-                                            if($GROUP->status == 1) {
+                                            if ($GROUP->status == 1) {
                                                 ?>
-                                            <input type="checkbox" id="status" class="form-control" checked="checked" autocomplete="off" name="status" required="true" value="status">
-                                            <?php
+                                                <input type="checkbox" id="status" class="form-control" checked="checked" autocomplete="off" name="status" required="true" value="status">
+                                                <?php
                                             } else {
                                                 ?>
-                                            <input type="checkbox" id="status" class="form-control" autocomplete="off" name="status" required="true" value="status">
-                                            <?php
+                                                <input type="checkbox" id="status" class="form-control" autocomplete="off" name="status" required="true" value="status">
+                                                <?php
                                             }
                                             ?>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -143,10 +143,16 @@ $GROUP = new Group($id);
         <script src="js/jquery.min.js" type="text/javascript"></script>
 
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="lib/datetimepicker/jquery.datetimepicker.min.js" type="text/javascript"></script>
         <script src="../control-panel/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
 
         <!-- Custom css -->
         <script src="js/custom.js" type="text/javascript"></script> 
         <script src="js/group.js" type="text/javascript"></script> 
+        <script>
+            $('#end_date_time').datetimepicker({
+                format: 'Y/m/d H:i'
+            });
+        </script>
     </body>
 </html>	 
