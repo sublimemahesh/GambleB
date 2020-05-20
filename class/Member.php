@@ -381,6 +381,7 @@ class Member {
                 . "`password` ='" . $this->password . "', "
                 . "`phone_number` ='" . $this->phone_number . "', "
                 . "`country` ='" . $this->country . "', "
+                . "`image_name` ='" . $this->image_name . "', "
                 . "`address` ='" . $this->address . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
