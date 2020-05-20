@@ -14,23 +14,20 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php">Dashboard</a>
                                 </li> 
-<!--                                <li class="dropdown">
+                               <li class="dropdown">
                                     <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        My Orders
+                                        Groups
                                         <i class="fa fa-angle-down"></i>
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                     <div class="sub-menu dropdown-menu">
                                         <ul class="all-menu">
-                                            <li><a href="pending-orders.php">Pending Orders</a></li>
-                                            <li><a href="confirmed-orders.php">Confirmed Orders</a></li>
-                                            <li><a href="completed-orders.php">Completed Orders</a></li> 
-                                            <li><a href="canceled-orders.php">Canceled orders</a></li>
-                                            <li><a href="#">All orders</a></li>
+                                            <li><a href="add-new-group.php">Add New</a></li>
+                                            <li><a href="manage-groups.php">Manage My Groups</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="dropdown">
+                                <!-- <li class="dropdown">
                                     <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         My Areas
                                         <i class="fa fa-angle-down"></i>
