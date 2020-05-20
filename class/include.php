@@ -26,8 +26,7 @@ include_once(dirname(__FILE__) . '/AddToCart.php');
 include_once(dirname(__FILE__) . '/Order.php');
 include_once(dirname(__FILE__) . '/OrderProduct.php');
 include_once(dirname(__FILE__) . '/Page.php');
-include_once(dirname(__FILE__) . '/Dealer.php');
-include_once(dirname(__FILE__) . '/DealerArea.php');
+include_once(dirname(__FILE__) . '/Game.php');
 
 function dd($data) {
 
