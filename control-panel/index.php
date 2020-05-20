@@ -1,10 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-$cancel_orders_count = count(Order::getCanceledOrders());
-$success_orders = count(Order::getOrdersByDeliveryStatusDescending(2));
-$confirmed_orders = count(Order::getOrdersByDeliveryStatusDescending(1));
-$pending_orders = count(Order::getOrdersByDeliveryStatusDescending(0));
 ?> 
 <!DOCTYPE html>
 <html> 
@@ -117,7 +113,7 @@ $pending_orders = count(Order::getOrdersByDeliveryStatusDescending(0));
                         <div class="card">
                             <div class="header bg-blue-grey">
                                 <h2>
-                                    PRD CATEGORIES <small>   
+                                    Games <small>   
 
                                     </small>
                                 </h2>
@@ -125,9 +121,8 @@ $pending_orders = count(Order::getOrdersByDeliveryStatusDescending(0));
                             </div>
                             <div class="body">
                                 <div class="list-group">
-                                    <a href="create-product-categories.php"><button type="button" class="list-group-item">Add new</button></a>
-                                    <a href="manage-product-categories.php"><button type="button" class="list-group-item">Manage</button></a>
-                                    <a href="arrange-product-categories.php"><button type="button" class="list-group-item">Arrange</button></a>
+                                    <a href="create-game.php"><button type="button" class="list-group-item">Add new</button></a>
+                                    <a href="manage-games.php"><button type="button" class="list-group-item">Manage</button></a>
                                 </div>
                             </div>
                         </div>
@@ -136,56 +131,18 @@ $pending_orders = count(Order::getOrdersByDeliveryStatusDescending(0));
                         <div class="card">
                             <div class="header bg-blue-grey">
                                 <h2>
-                                    BRANDS
+                                    Countries
     <!--                                    <small>  </small>-->
                                 </h2>
 
                             </div>
                             <div class="body">
                                 <div class="list-group">
-                                    <a href="create-brand.php"><button type="button" class="list-group-item">Add new</button></a>
-                                    <a href="manage-brand.php"><button type="button" class="list-group-item">Manage</button></a>
-                                    <a href="arrange-brand.php"><button type="button" class="list-group-item">Arrange</button></a>
+                                    <a href="create-country.php"><button type="button" class="list-group-item">Add new</button></a>
+                                    <a href="manage-countries.php"><button type="button" class="list-group-item">Manage</button></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <div class="header bg-blue-grey">
-                                <h2>
-                                    OFFERS
-    <!--                                    <small></small>-->
-                                </h2>
-
-                            </div>
-                            <div class="body">
-                                <div class="list-group">
-                                    <a href="create-offer.php"><button type="button" class="list-group-item">Add new</button></a>
-                                    <a href="manage-offer.php"><button type="button" class="list-group-item">Manage</button></a>
-                                    <a href="arrange-offer.php"><button type="button" class="list-group-item">Arrange</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <div class="header bg-blue-grey">
-                                <h2>
-                                    PACKAGES
-                                </h2>
-
-                            </div>
-                            <div class="body">
-
-                                <div class="list-group">
-                                    <a href="create-package.php"><button type="button" class="list-group-item">Add new</button></a>
-                                    <a href="manage-package.php"><button type="button" class="list-group-item">Manage</button></a>
-                                    <a href="#"><button type="button" class="list-group-item">-</button></a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- #END# Widgets -->
                     <!-- CPU Usage -->
