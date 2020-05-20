@@ -24,6 +24,7 @@
                                         <ul class="all-menu">
                                             <li><a href="add-new-group.php">Add New</a></li>
                                             <li><a href="manage-groups.php">Manage My Groups</a></li>
+                                            <li><a href="manage-all-groups.php">Manage All Groups</a></li>
                                         </ul>
                                     </div>
                                 </li>

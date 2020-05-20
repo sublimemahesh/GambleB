@@ -20,7 +20,7 @@ $MEMBER = new Member($_SESSION["id"]);
         <!-- Font Css -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-
+<link href="lib/datetimepicker/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap Css --> 
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
 
@@ -30,15 +30,14 @@ $MEMBER = new Member($_SESSION["id"]);
         <link href="css/custom.css" type="text/css" rel="stylesheet">
         <link href="../control-panel/plugins/sweetalert/sweetalert.css" type="text/css" rel="stylesheet">
         <link href="../control-panel/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-
     </head>
     <body class="theme-2">
         <!-- LOADER -->
-<!--        <div id="preloader">
-            <div class="loading_wrap">
-                <img src="../image/logo.jpg" alt="logo">
-            </div>
-        </div>-->
+        <!--        <div id="preloader">
+                    <div class="loading_wrap">
+                        <img src="../image/logo.jpg" alt="logo">
+                    </div>
+                </div>-->
         <!-- LOADER -->
 
         <?php include './header.php'; ?>
@@ -93,10 +92,10 @@ $MEMBER = new Member($_SESSION["id"]);
                                     <input type="submit" name="btn-save" id="btn-save" class="btn btn-info" value="Add New Group"/>
                                 </div>
                             </div>
-                            
+
 
                         </form>
-                        
+
                     </div>
 
                 </div> 
@@ -106,18 +105,19 @@ $MEMBER = new Member($_SESSION["id"]);
         <?php include './footer.php'; ?> 
 
         <!-- Jquery js -->
+        
         <script src="js/jquery.min.js" type="text/javascript"></script>
 
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="lib/datetimepicker/jquery.datetimepicker.min.js" type="text/javascript"></script>
         <script src="../control-panel/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="../control-panel/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <!-- Custom css -->
         <script src="js/custom.js" type="text/javascript"></script> 
         <script src="js/group.js" type="text/javascript"></script> 
         <script>
-            $('#end_date_time').datepicker({
-                dateFormat: 'yy-mm-dd',
-                minDate: 0
+            $('#end_date_time').datetimepicker({
+                format: 'Y/m/d H:i'
             });
         </script>
     </body>

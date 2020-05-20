@@ -183,6 +183,47 @@ $(document).ready(function () {
             });
         });
     });
+    $('.dataTable').on('click', '.join-group', function () {
+
+        var group = $(this).attr("data-id");
+        var member = $(this).attr("member");
+
+        swal({
+            title: "Are you sure?",
+            text: "Are you want to join this group!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, join it!",
+            closeOnConfirm: false
+        }, function () {
+
+            $.ajax({
+                url: "ajax/join-group.php",
+                type: "POST",
+                data: {
+                    group: group,
+                    member: member,
+                    option: 'join'
+                },
+                dataType: "JSON",
+                success: function (jsonStr) {
+                    if (jsonStr.status) {
+
+                        swal({
+                            title: "Joined!",
+                            text: "You have been joined this group successfully.",
+                            type: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                        location.reload();
+
+                    }
+                }
+            });
+        });
+    });
 });
 
 
