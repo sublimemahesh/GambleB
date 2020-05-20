@@ -311,6 +311,27 @@
                         </li> 
                     </ul>
                 </li> 
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Game</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-game.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-games.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li> 
+                    </ul>
+                </li> 
             </ul>
         </div>
         <!-- #Menu -->
