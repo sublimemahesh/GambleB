@@ -5,6 +5,7 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 
 $MEMBER = new Member($_POST['id']);
 
+$email = $MEMBER->email;
 $MEMBER->name = $_POST['name'];
 $MEMBER->phone_number = $_POST['phone'];
 $MEMBER->email = $_POST['email'];
@@ -48,7 +49,11 @@ $checkEmail = $MEMBER->checkEmail($_POST['id'], $_POST['email']);
 if (!$checkEmail || $checkEmail['id'] == $_POST['id']) {
     if ($VALID->passed()) {
         $MEMBER->update();
-
+        if ($email != $MEMBER->email) {
+            $code = Helper::getVerifyCode();
+            $MEMBER->updateVerifyCode($code);
+            $MEMBER->sendVerificationMail($code);
+        }
         $result = ["status" => 'success'];
         echo json_encode($result);
         exit();
