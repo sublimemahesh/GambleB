@@ -8,13 +8,13 @@ include_once(dirname(__FILE__) . '/../class/include.php');
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Cash on Delivery - Online Shopping Store</title>
+        <title>GambleB</title>
 
         <!-- Favicon Icon Css -->
         <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png"> 
         <!-- Font Css -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-        <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
         <!-- Bootstrap Css --> 
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"> 
@@ -29,7 +29,7 @@ include_once(dirname(__FILE__) . '/../class/include.php');
     <body class="theme-2">
 
         <div class="container text-center">
-            <!--<img src="../image/logo.jpg" class="logo-login" style="width: 150px"/>-->
+            <img src="../images/logo/logo.png" class="logo-login" style="width: 150px"/>
             <B>Member Dashbord</B>
         </div>
         <!-- Start My Account Section -->
@@ -54,7 +54,7 @@ include_once(dirname(__FILE__) . '/../class/include.php');
                                     <input class="defult-check" type="checkbox" checked="checked">
                                     <span class="checkmark"></span>
                                 </label>
-                                <a href="#" class="forgot-password float-right">Forgot Password ?</a>
+                                <a href="forget-password.php" class="forgot-password float-right">Forgot Password ?</a>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="login" id="login" value="Log in">Log in</button>

@@ -229,6 +229,40 @@ class Member {
             return $result;
         }
     }
+    
+    public function checkOldPass($id, $password) {
+        
+        $enPass = md5($password);
+        
+        $query = "SELECT `id` FROM `member` WHERE `id`= '" . $id . "' AND `password`= '" . $enPass . "'";
+       
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        if (!$result) {
+            return FALSE;
+        } else {
+
+            return TRUE;
+        }
+    }
+
+    public function changePassword($id, $password) {
+        $enPass = md5($password);
+        $query = "UPDATE  `member` SET "
+                . "`password` ='" . $enPass . "' "
+                . "WHERE `id` = '" . $id . "'";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+
+        if ($result) {
+
+            return TRUE;
+        } else {
+
+            return FALSE;
+        }
+    }
 
     public function GenarateCode($email) {
 
@@ -249,7 +283,7 @@ class Member {
         }
     }
 
-    public function SelectForgetCustomer($email) {
+    public function SelectForgetMember($email) {
 
         if ($email) {
 
@@ -301,12 +335,12 @@ class Member {
         }
     }
 
-    public function updateVerifyCode($id, $code) {
+    public function updateVerifyCode($code) {
 
         $query = "UPDATE  `member` SET "
                 . "`verify_code` ='" . $code . "', "
                 . "`is_verified` ='0' "
-                . "WHERE `id` = '" . $id . "'";
+                . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
         $result = $db->readQuery($query);
@@ -319,6 +353,7 @@ class Member {
             return FALSE;
         }
     }
+
     public function updateMemberStatus() {
 
         $query = "UPDATE  `member` SET "
@@ -432,11 +467,149 @@ class Member {
         return $result;
     }
 
-    public function arrange($key, $img) {
-        $query = "UPDATE `member` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
-        $db = new Database();
-        $result = $db->readQuery($query);
-        return $result;
+    function sendVerificationMail($code) {
+        
+        require_once "Mail.php";
+
+        $MEMBER = new Member($this->id);
+        
+        date_default_timezone_set('Asia/Colombo');
+        $todayis = date("l, F j, Y, g:i a");
+
+        $comany_name = "GambleB";
+        $website_name = "www.gambleb.lk";
+        $comConNumber = "+94771234567";
+        $comEmail = "info@gambleb.lk";
+        $site_link = "https://" . $_SERVER['HTTP_HOST'];
+
+        //---------------------- SERVER WEBMAIL LOGIN ------------------------
+
+        $host = "sg1-ls7.a2hosting.com";
+        $username = "info@gambleb.lk";
+        $password = 'IT5U4!CoJdK{';
+
+//------------------------ MAIL ESSENTIALS --------------------------------
+
+        $webmail = "info@gambleb.lk";
+        $visitorSubject = "Verify Your Email";
+
+        $html = '<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>GambleB Email</title>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f6f8fb"> 
+            <tbody>
+                <tr> 
+                    <td style="padding-top:10px;padding-bottom:30px;padding-left:16px;padding-right:16px" align="center"> 
+                        <table style="width:602px" width="602" cellspacing="0" cellpadding="0" border="0" align="center"> 
+                            <tbody>
+                                <tr> 
+                                    <td bgcolor=""> 
+                                        <table width="642" cellspacing="0" cellpadding="0" border="0"> 
+                                            <tbody> 
+                                                <tr> 
+                                                    <td style="border:1px solid #dcdee3;padding:20px;background-color:#fff;width:600px" width="600px" bgcolor="#ffffff" align="center"> 
+                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                                                            <tbody>
+                                                                <tr><td>
+                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td width="100%">
+                                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 0px;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td valign="middle" height="46" align="right">
+                                                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                                                            <tbody>
+                                                                                                                <tr>
+                                                                                                                    <td width="100%" align="center">
+                                                                                                                        <font style="font-family:Verdana,Geneva,sans-serif;color:#68696a;font-size:18px">
+                                                                                                                            <a href="' . $site_link . '" style="color:#68696a;text-decoration:none;" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.gallecabsandtours.com&amp;source=gmail&amp;ust=1574393192616000&amp;usg=AFQjCNGNM8_Z7ZMe7ndwFlJuHEP29nDd3Q">
+                                                                                                                                <h4>' . $website_name . '</h4>
+                                                                                                                            </a>
+                                                                                                                        </font>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody> 
+                                                        </table>
+                                                        <table style="background-color:#f5f7fa" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px" align="left"> 
+                                                                        <b><p>Dear Member <br />Mr/Mrs/Miss/Dr/Rev. ' . $MEMBER->name . ',</p></b>
+                                                                        <p>Thank you very much for join with us. A sign in attempt requires further verification. Use below code to verify your email.</p>
+                                                                        <ul>
+                                                                            <li><b>Verification Code:</b> ' . $code . '</li>
+                                                                        </ul>
+                                                                        <p style="margin-bottom:15px;"><a href="https://gambleb.synotec.lk/member/verify-email.php" style="padding: 10px; background: #9C27B0; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 600;">Click here to verify your email address</a></p> 
+                                                                    </td>         
+                                                                </tr> 
+                                                                <tr>
+                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px" align="left">
+                                                                        <p><b>Thanks & Best Regards!...</b></p>
+                                                                        <p style="margin-bottom:0; margin-top: 3px; font-size: 12px;">This is an automated message, do not reply to this email.</p>
+                                                                        <p style="margin-bottom:0; margin-top: 3px; font-size: 12px;">Email: info@gambleb.lk</p>
+                                                                        <p style="margin-bottom:0; margin-top: 3px; font-size: 12px;">Phone: +94771234567</p>
+                                                                        <p style="margin-bottom:0; margin-top: 3px; font-size: 12px;">Web: www.gambleb.lk</p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody> 
+                                                        </table> 
+                                                    </td> 
+                                                </tr> 
+                                                <tr> 
+                                                    <td style="padding:4px 20px;width:600px;line-height:12px">&nbsp;</td> 
+                                                </tr> 
+                                                
+                                            </tbody> 
+                                        </table>
+                                    </td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td> 
+                </tr> 
+            </tbody>
+        </table>
+    </body>
+</html>';
+        
+        $visitorHeaders = array('MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+            'To' => $MEMBER->email,
+            'Reply-To' => $comEmail,
+            'Subject' => $visitorSubject);
+
+        
+        $smtp = Mail::factory('smtp', array('host' => $host,
+                    'auth' => true,
+                    'username' => $username,
+                    'password' => $password));
+
+        $visitorMail = $smtp->send($MEMBER->email, $visitorHeaders, $html);
+        $arr = array();
+        if (PEAR::isError($visitorMail)) {
+
+            $arr['status'] = "Could not be sent your message";
+        } else {
+            $arr['status'] = "Your message has been sent successfully";
+        }
+
+        return $arr;
     }
 
 }

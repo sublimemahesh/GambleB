@@ -47,7 +47,7 @@ $(document).ready(function () {
                     if (result.status === 'error') {
                         swal({
                             title: "Error!",
-                            text: "Invalid username11 or password!...",
+                            text: "Invalid username or password!...",
                             type: 'error',
                             timer: 2000,
                             showConfirmButton: false

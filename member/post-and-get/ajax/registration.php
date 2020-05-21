@@ -17,7 +17,9 @@ $checkEmail = $MEMBER->checkEmail($_POST['email']);
 if (!$checkEmail) {
     $MEMBER->create();
     if ($MEMBER->id) {
-
+        $code = Helper::getVerifyCode();
+        $MEMBER->updateVerifyCode($code);
+        $MEMBER->sendVerificationMail($code);
         $data = $MEMBER->login($MEMBER->email, $MEMBER->password);
 
         $result = ["status" => 'success'];

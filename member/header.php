@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg categories_menu navbar-light">
-                        <a href="index.php"><img src="../image/logo.jpg" alt="logo" style="width: 100px"></a>
+                        <a href="index.php"><img src="../images/logo/logo-small.png" alt="logo" style="width: 100px"></a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
 
@@ -63,7 +63,7 @@
                                     <div class="sub-menu dropdown-menu">
                                         <ul class="all-menu">
                                             <li><a href="edit-profile.php">Update My Details<i class="fa fa-user"></i></a></li>
-                                            <li><a href="#">Change Password <i class="fa fa-key"></i> </a></li>
+                                            <li><a href="change-password.php">Change Password <i class="fa fa-key"></i> </a></li>
                                             <li><a href="logout.php">Log Out  <i class="fa fa-sign-out"></i> </a></li>
                                         </ul>
                                     </div>
