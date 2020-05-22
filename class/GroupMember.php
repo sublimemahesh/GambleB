@@ -16,11 +16,12 @@ class GroupMember {
     public $id;
     public $group;
     public $member;
+    public $is_online;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`group`,`member` FROM `group_member` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`group`,`member`,`is_online` FROM `group_member` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -29,6 +30,7 @@ class GroupMember {
             $this->id = $result['id'];
             $this->group = $result['group'];
             $this->member = $result['member'];
+            $this->is_online = $result['is_online'];
 
             return $this;
         }
@@ -64,6 +66,33 @@ class GroupMember {
 
         return $array_res;
     }
+    public function getAllMembersByGroup($id) {
+
+        $query = "SELECT * FROM `group_member` WHERE `group` = $id";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
+    
+    public function getGroupsByMember($id) {
+
+        $query = "SELECT * FROM `group_member` WHERE `member` = $id";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
     public function checkMemberJoinedOrNot($group, $member) {
 
@@ -72,7 +101,7 @@ class GroupMember {
         $result = mysql_fetch_assoc($db->readQuery($query));
         
         if ($result) {
-            return TRUE;
+            return $result['id'];
         
         } else {
             return FALSE;
@@ -82,6 +111,19 @@ class GroupMember {
     public function update() {
 
         $query = 'UPDATE `group_member` SET `group`= "' . $this->group . '" WHERE id="' . $this->id . '"';
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return $this->__construct($this->id);
+        } else {
+            return FALSE;
+        }
+    }
+    public function updateOnlineStatus() {
+
+        $query = 'UPDATE `group_member` SET `is_online`= "' . $this->is_online . '" WHERE id="' . $this->id . '"';
 
         $db = new Database();
         $result = $db->readQuery($query);
