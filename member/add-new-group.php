@@ -52,6 +52,18 @@ $MEMBER = new Member($_SESSION["id"]);
                         <form class="form-horizontal" id="group-form" method="post" action="" enctype="multipart/form-data"> 
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 form-control-label text-right">
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 p-bottom">
+                                    <div class="form-group">
+                                        <div class="form-line"> 
+                                            <input type="text" id="name" class="form-control"  autocomplete="off" name="name" required="true" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 form-control-label text-right">
                                     <label for="game">Game <span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 p-bottom">

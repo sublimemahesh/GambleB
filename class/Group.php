@@ -13,6 +13,7 @@
  */
 class Group {
     public $id;
+    public $name;
     public $game;
     public $member;
     public $created_at;
@@ -22,11 +23,12 @@ class Group {
     public function __construct($id) {
 
         if ($id) {
-            $query = "SELECT `id`,`game`,`member`,`created_at`,`end_date_time`,`status` FROM `group` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`game`,`member`,`created_at`,`end_date_time`,`status` FROM `group` WHERE `id`=" . $id;
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
             $this->id = $result['id'];
+            $this->name = $result['name'];
             $this->game = $result['game'];
             $this->member = $result['member'];
             $this->created_at = $result['created_at'];
@@ -40,7 +42,8 @@ class Group {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
         
-        $query = "INSERT INTO `group` (`game`,`member`,`created_at`,`end_date_time`,`status`) VALUES  ('"
+        $query = "INSERT INTO `group` (`name`,`game`,`member`,`created_at`,`end_date_time`,`status`) VALUES  ('"
+                . $this->name . "','"
                 . $this->game . "','"
                 . $this->member . "', '"
                 . $createdAt . "', '"
@@ -89,6 +92,7 @@ class Group {
 
     public function update() {
         $query = "UPDATE  `group` SET "
+                . "`name` ='" . $this->name . "', "
                 . "`game` ='" . $this->game . "', "
                 . "`member` ='" . $this->member . "', "
                 . "`end_date_time` ='" . $this->end_date_time . "', "
