@@ -41,7 +41,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
         </div><!--/Preloader -->
 
         <?php
-        include '/header.php';
+        include './header.php';
         ?>
         <!--Hero Area-->
         <section class="hero-slider owl-carousel">

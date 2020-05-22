@@ -35,7 +35,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
             <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div><!--/Preloader -->
         <?php
-        include '/header.php';
+        include './header.php';
         ?>
 
         <!--breadcrumb area-->
@@ -79,7 +79,19 @@ include_once(dirname(__FILE__) . '/online-status.php');
                                         <tr>
                                             <th scope="row"><?php echo $key; ?></th>
                                             <td class="cl-mint"><?php echo $group['name']; ?></td>
-                                            <td class="cl-yellow"><img src="member/uploads/profile_image/<?php echo $MEM->image_name; ?>" alt=""><?php echo $MEM->name; ?></td>
+                                            <td class="cl-yellow">
+                                                <?php
+                                                if ($MEM->image_name) {
+                                                    ?>
+                                                <img src="upload/member/profile_image/<?php echo $MEM->image_name; ?>" alt="">
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="images/user.png" alt="">
+                                                    <?php
+                                                }
+                                                ?>
+                                                <?php echo $MEM->name; ?></td>
                                             <td class="cl-green"><?php echo $group['end_date_time']; ?></td>
                                             <td><a href="view-group.php?id=<?php echo $group['id']; ?>" class="bttn-small btn-fill">View</a></td>
                                         </tr>
@@ -95,7 +107,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
         </section>
 
         <?php
-        include '/footer.php';
+        include './footer.php';
         ?>
 
 

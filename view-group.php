@@ -15,7 +15,7 @@ $GROUP = new Group($id);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta http-equiv="refresh" content="1000000">
+        <meta http-equiv="refresh" content="10">
 
         <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -41,7 +41,7 @@ $GROUP = new Group($id);
         </div><!--/Preloader -->
 
         <?php
-        include '/header.php';
+        include './header.php';
         ?>
 
         <!--breadcrumb area-->
@@ -129,7 +129,7 @@ $GROUP = new Group($id);
         </section><!--/Play now Section-->
 
         <?php
-        include '/footer.php';
+        include './footer.php';
         ?>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>

@@ -4258,3 +4258,6 @@ Sidebar
 .inplay-details .single-inplay {
     padding: 4px 15px;
 }
+.winner-list .table tbody tr td img {
+    border-radius: 50%;
+}
