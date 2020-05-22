@@ -25,12 +25,9 @@ if ($handle1->uploaded) {
 
     $handle1->file_new_name_body = explode(".", $MEMBER->image_name)[0];
     $handle1->file_overwrite = TRUE;
-    $image_dst_x = $handle1->image_dst_x;
-    $image_dst_y = $handle1->image_dst_y;
-    $newSize = Helper::calImgResize(600, $image_dst_x, $image_dst_y);
-    $handle1->image_x = (int) $newSize[0];
-    $handle1->image_y = (int) $newSize[1];
-    $handle1->Process('../uploads/profile_image/');
+    $handle->image_x = 250;
+    $handle->image_y = 250;
+    $handle1->Process('../../upload/member/profile_image/');
     $MEMBER->image_name = $handle1->file_dst_name;
 }
 

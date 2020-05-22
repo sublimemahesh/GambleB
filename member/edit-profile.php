@@ -201,7 +201,7 @@ $MEMBER = new Member($_SESSION["id"]);
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 p-bottom">
                                             <div class="form-group">
                                                 <div class="form-line">  
-                                                    <a href="uploads/profile_image/<?php echo $MEMBER->image_name; ?>" target="_blank" class="btn btn-lg btn-info">
+                                                    <a href="../upload/member/profile_image/<?php echo $MEMBER->image_name; ?>" target="_blank" class="btn btn-lg btn-info">
                                                         <i class="fa fa-image"></i>
                                                     </a>
                                                 </div>

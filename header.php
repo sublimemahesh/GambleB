@@ -46,7 +46,7 @@
                         <a class="nav-link" href="./">Home</a>
                         </li>
                     <li class="nav-item"><a class="nav-link" href="#">Games</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="groups.php">Groups</a></li>
                     <li class="nav-item"><a class="nav-link" href="about-us.php">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
                 </ul>
