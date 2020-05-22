@@ -39,7 +39,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
         </div><!--/Preloader -->
 
         <?php
-        include '/header.php';
+        include './header.php';
         ?>
 
         <!--breadcrumb area-->
@@ -125,7 +125,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
         </section><!-- /Faq Section -->
 
         <?php
-        include '/footer.php';
+        include './footer.php';
         ?>
 
 
@@ -151,5 +151,4 @@ include_once(dirname(__FILE__) . '/online-status.php');
         <script src="assets/js/script.js"></script>
     </body>
 
-    <!-- Mirrored from weblos.net/HTML/glom/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 May 2020 04:47:46 GMT -->
 </html>

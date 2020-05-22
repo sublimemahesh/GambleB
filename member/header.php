@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg categories_menu navbar-light">
-                        <a href="index.php"><img src="../images/logo/logo-small.png" alt="logo" style="width: 100px"></a>
+                        <a href="../"><img src="../images/logo/logo-small.png" alt="logo" style="width: 100px"></a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
 

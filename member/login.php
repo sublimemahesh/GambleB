@@ -8,7 +8,7 @@ include_once(dirname(__FILE__) . '/../class/include.php');
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>GambleB</title>
+        <title>Member Dashboard || GambleB</title>
 
         <!-- Favicon Icon Css -->
         <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png"> 
@@ -29,7 +29,9 @@ include_once(dirname(__FILE__) . '/../class/include.php');
     <body class="theme-2">
 
         <div class="container text-center">
-            <img src="../images/logo/logo.png" class="logo-login" style="width: 150px"/>
+            <a href="../">
+                <img src="../images/logo/logo.png" class="logo-login" style="width: 150px"/>
+            </a>
             <B>Member Dashbord</B>
         </div>
         <!-- Start My Account Section -->

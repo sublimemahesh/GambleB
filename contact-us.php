@@ -35,7 +35,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
             <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div><!--/Preloader -->
         <?php
-        include '/header.php';
+        include './header.php';
         ?>
 
         <!--breadcrumb area-->
@@ -113,7 +113,7 @@ include_once(dirname(__FILE__) . '/online-status.php');
         </section><!--/Contact Section-->
 
         <?php
-        include '/footer.php';
+        include './footer.php';
         ?>
 
 
