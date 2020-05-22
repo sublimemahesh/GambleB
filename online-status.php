@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $url = explode('/', $_SERVER['REQUEST_URI']);
 $page = explode('?', $url[2]);
 if ($page[0] == 'view-group.php') {

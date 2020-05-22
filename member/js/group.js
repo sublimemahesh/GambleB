@@ -7,7 +7,18 @@ $(document).ready(function () {
         $('#btn-save').hide();
         $('#update-loading').show();
 
-        if (!$('#game').val() || $('#game').val().length === 0) {
+        if (!$('#name').val() || $('#name').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter the name...",
+                type: 'error',
+                timer: 2000,
+                showConfirmButton: false
+            });
+            $('#btn-save').show();
+            $('#update-loading').hide();
+
+        } else if (!$('#game').val() || $('#game').val().length === 0) {
             swal({
                 title: "Error!",
                 text: "Please enter the game...",
