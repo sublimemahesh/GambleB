@@ -75,8 +75,24 @@ class Group {
         }
         return $array_res;
     }
+    
     public function getGroupsByMember($id) {
         $query = "SELECT * FROM `group` WHERE `member` = $id ORDER BY `id` ASC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        $array_res = array();
+        while ($row = mysql_fetch_array($result)) {
+
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+    
+    public function getActiveGroup() {
+        $query = "SELECT * FROM `group` WHERE `status` LIKE 'active' ORDER BY `id` ASC";
 
         $db = new Database();
 
