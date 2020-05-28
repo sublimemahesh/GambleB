@@ -10,8 +10,8 @@ include_once(dirname(__FILE__) . '/online-status.php');
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/favicon.png" type="image/x-icon">
+        <link rel="icon" href="images/logo/favicon.png" type="image/x-icon">
 
         <title>About Us || GambleB</title>
 

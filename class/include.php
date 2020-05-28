@@ -17,7 +17,8 @@ include_once(dirname(__FILE__) . '/Game.php');
 include_once(dirname(__FILE__) . '/Group.php');
 include_once(dirname(__FILE__) . '/GroupMember.php');
 include_once(dirname(__FILE__) . '/Banner.php');
-include_once(dirname(__FILE__) . '/Slider.php');
+include_once(dirname(__FILE__) . '/GameSession.php');
+include_once(dirname(__FILE__) . '/GameSessionMembers.php');
 
 function dd($data) {
 

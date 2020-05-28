@@ -28,11 +28,11 @@ include_once(dirname(__FILE__) . '/../class/include.php');
     </head>
     <body class="theme-2">
 
-        <div class="container text-center">
+        <div class="container text-center" style="margin-top: 10px">
             <a href="../">
-                <img src="../images/logo/logo.png" class="logo-login" style="width: 150px"/>
+                <img src="../images/logo/logo-small.png" class="logo-login" style="height: 50px"/>
             </a>
-            <B>Member Dashbord</B>
+            <span><B>Member Dashbord</B></span>
         </div>
         <!-- Start My Account Section -->
         <section class="">

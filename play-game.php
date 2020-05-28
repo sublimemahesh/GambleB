@@ -6,7 +6,6 @@ $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
-
 $MEMBER = new Member($_SESSION['id']);
 $GROUP = new Group($id);
 $GAME = new Game($GROUP->game);
@@ -53,11 +52,11 @@ $GAME = new Game($GROUP->game);
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="site-breadcrumb">
-                            <h2><?php echo $GROUP->name; ?></h2>
+                            <h2><?php echo $GAME->name; ?></h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
-                                <li><a href="groups.php">All Groups</a></li>
-                                <li><?php echo $GROUP->name; ?></li>
+                                <li><a href="view-group.php?id=<?php echo $id; ?>"><?php echo $GROUP->name; ?></a></li>
+                                <li><?php echo $GAME->name; ?></li>
                             </ul>
                         </div>
                     </div>
@@ -82,9 +81,9 @@ $GAME = new Game($GROUP->game);
                         <div class="inplay-details">
 
                             <?php
-                            $groupmembers = GroupMember::getAllMembersByGroup($id);
-                            if ($groupmembers) {
-                                foreach ($groupmembers as $member) {
+                            $members = GameSessionMembers::getMembersByGameSession($_SESSION['game_session']);
+                            if ($members) {
+                                foreach ($members as $member) {
                                     $MEM = new Member($member['member']);
                                     $active = '';
                                     if ($member['is_online'] == 1) {
@@ -121,19 +120,18 @@ $GAME = new Game($GROUP->game);
                                 }
                             } else {
                                 ?>
-                                <h5>No any members in this group.</h5>
+                                <h5></h5>
                                 <?php
                             }
                             ?>                     
                         </div>
-                        <div id="start-game" class="bttn-small btn-fill">Start Game</div>
                     </div>
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                         <div  class="button-panel">
-                            <!--<input id="toggle-rotate" class="bttn-small btn-fill" type ="button" value ="stop">-->
+                            <input id="toggle-rotate" class="bttn-small btn-fill" type ="button" value ="start">
                         </div>
                         <section class="container1">
-                            <div class ="random" id="cube">
+                            <div class ="" id="cube">
                                 <figure id="one" class="front">
                                     <div class="dot dot-center"></div>
                                 </figure>
@@ -196,7 +194,7 @@ $GAME = new Game($GROUP->game);
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/scrollUp.min.js"></script>
         <script src="assets/js/script.js"></script>
-        <script src="js/group-members.js" type="text/javascript"></script>
+        <script src="js/game_session_members.js" type="text/javascript"></script>
         <script src="js/game-session.js" type="text/javascript"></script>
         <script src="js/dice-roll.js" type="text/javascript"></script>
     </body>
