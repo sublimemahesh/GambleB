@@ -1,0 +1,224 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 27, 2020, 4:19:28 PM
+    Author     : W j K n``
+*/
+
+/*button section only*/
+.button-panel{
+    input[type=button]{
+        border:black solid 1px;
+        background-color:black;
+        color:white;
+    }
+}
+
+.container1 {
+    padding-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+    width:200px;
+    height:200px;
+    position: relative;
+    perspective:1000px;  
+    margin-bottom: 40px;
+}
+
+
+
+#cube {
+
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    transform-style: preserve-3d;
+
+
+}
+
+#cube figure {
+
+
+    /*set border radius*/
+    border-radius: 10px;
+
+    /*add shadowing*/
+    /*
+     parameters:
+     x,y,blur,alpha
+ 
+    */
+    box-shadow: 2px, 0px, 0px, 0.3;
+
+    margin: 0;
+    width: 204px;
+    height: 204px;
+    display: block;
+    position: absolute;
+    border:white solid 2px;
+    background-color:rgb(100,250,178);
+
+}
+
+#cube .front  { transform: rotateY(0deg) translateZ(100px); }
+#cube .back   { transform: rotateX(180deg) translateZ(100px); }
+#cube .right  { transform: rotateY(90deg) translateZ(100px); }
+#cube .left   { transform: rotateY(-90deg) translateZ(100px); }
+#cube .top    { transform: rotateX(90deg) translateZ(100px); }
+#cube .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+#cube { transform: translateZ(-100px); }
+
+#cube{
+    transform: rotateY(14deg);
+}
+
+.dot{ 
+
+    border-radius:30px;
+    height:30px;
+    width:30px;
+    background-color:rgb(255,255,255);
+}
+
+/* Dot alignment code below */
+
+.dot-ul{  
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+.dot-lr{
+    position:absolute;
+    top:150px;
+    left:150px;
+
+}
+
+
+.dot-center{
+    position:absolute;
+    top:85px;
+    left:85px; 
+
+}
+
+.dot-ur{  
+    position:absolute;
+    top:20px;
+    left:150px;  
+}
+
+.dot-ll{  
+    position:absolute;
+    top:150px;
+    left:20px; 
+}
+
+.dot-lc{  
+    position:absolute;
+    top:85px;
+    left:20px;
+}
+.dot-rc{  
+    position:absolute;
+    top:85px;
+    left:150px;  
+}
+
+/*animation code below*/
+.random{
+
+    -webkit-animation: random 5s ease-in-out forwards  infinite;
+    animation: random 5s ease-in-out forwards infinite;
+
+}
+
+
+@keyframes random {
+    0% {
+        transform: translateX(0px) rotate(500deg);
+    }
+    12.5% {
+        transform: translateY(0px) rotateY(500deg);
+    }
+    25%{
+        transform: translateZ(0px) rotateZ(500deg);
+
+    }
+    37.5%{
+        transform: translateX(0px) rotateX(500deg);
+
+    }
+    50.5%{
+        transform: translateY(0px) 
+            rotateY(500deg);
+
+    }
+    62.5%{
+        transform: translateZ(0px) 
+            rotateZ(500deg);
+
+    }
+    75%{
+        transform: translateX(0px) 
+            rotateX(500deg);
+
+    }
+    87.5%{
+        transform: translateZ(0px) 
+            rotateY(500deg);
+
+    }
+
+    100% {
+        transform: translateY(0px) rotateY(500deg);
+    }
+}
+/*webkit browser animation*/
+
+@-webkit-keyframes random {
+    0% {
+        -webkit-transform: translateX(0px) rotate(50deg);
+    }
+    12.5% {
+        -webkit-transform: translateY(0px) rotateY(500deg);
+    }
+    25%{
+        -webkit-transform: translateZ(0px) rotateZ(500deg);
+
+    }
+    37.5%{
+        -webkit-transform: translateX(0px) rotateX(500deg);
+
+    }
+    50.5%{
+        -webkit-transform: translateY(0px) 
+            rotateY(500deg);
+
+    }
+    62.5%{
+        -webkit-transform: translateZ(0px) 
+            rotateZ(500deg);
+
+    }
+    75%{
+        -webkit-transform: translateX(0px) 
+            rotateX(500deg);
+
+    }
+    87.5%{
+        -webkit-transform: translateZ(0px) 
+            rotateY(500deg);
+
+    }
+
+    100% {
+        -webkit-transform: translateY(0px) rotateY(500deg);
+    }
+
+}
