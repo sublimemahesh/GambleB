@@ -3,8 +3,8 @@
 session_start();
 if (Member::authenticate()) {
     $url = explode('/', $_SERVER['REQUEST_URI']);
-//    $page = explode('?', $url[2]); //localhost
-    $page = explode('?', $url[1]); //online
+    $page = explode('?', $url[2]); //localhost
+//    $page = explode('?', $url[1]); //online
     if ($page[0] == 'view-group.php') {
         $groupmemid = GroupMember::checkMemberJoinedOrNot($_GET['id'], $_SESSION['id']);
 

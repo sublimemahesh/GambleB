@@ -69,19 +69,12 @@ class GameSessionMembers {
         return $array_res;
     }
 
-    public function aaa() {
-        $query = "SELECT * FROM `game_session_members` WHERE `sort` LIKE 'active' ORDER BY `id` ASC";
+    public function getNextPlayer($session, $sort) {
+        $query = "SELECT * FROM `game_session_members` WHERE `sort` = $sort AND `game_session` = $session";
 
         $db = new Database();
-
-        $result = $db->readQuery($query);
-
-        $array_res = array();
-        while ($row = mysql_fetch_array($result)) {
-
-            array_push($array_res, $row);
-        }
-        return $array_res;
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
     }
 
     public function update() {
@@ -102,6 +95,7 @@ class GameSessionMembers {
             return FALSE;
         }
     }
+
     public function updateOnlineStatus($mem, $session) {
         $query = "UPDATE  `game_session_members` SET "
                 . "`is_online` =0 "

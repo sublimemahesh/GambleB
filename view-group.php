@@ -48,7 +48,7 @@ $GAME = new Game($GROUP->game);
         ?>
 
         <!--breadcrumb area-->
-        <section class="breadcrumb-area blue-overlay" style="background: url('assets/images/banner/3.jpg');">
+        <section class="breadcrumb-area blue-overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
