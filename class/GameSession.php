@@ -18,11 +18,12 @@ class GameSession {
     public $member;
     public $is_closed;
     public $closed_at;
+    public $current_player;
 
     public function __construct($id) {
 
         if ($id) {
-            $query = "SELECT `id`,`created_at`,`group`,`member`,`is_closed`,`closed_at` FROM `game_session` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`created_at`,`group`,`member`,`is_closed`,`closed_at`,`current_player` FROM `game_session` WHERE `id`=" . $id;
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
@@ -32,6 +33,7 @@ class GameSession {
             $this->member = $result['member'];
             $this->is_closed = $result['is_closed'];
             $this->closed_at = $result['closed_at'];
+            $this->current_player = $result['current_player'];
             return $this;
         }
     }
@@ -93,6 +95,21 @@ class GameSession {
                 . "`member` ='" . $this->member . "', "
                 . "`is_closed` ='" . $this->is_closed . "', "
                 . "`closed_at` ='" . $this->closed_at . "' "
+                . "WHERE `id` = '" . $this->id . "'";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+        if ($result) {
+
+            return $this->__construct($this->id);
+        } else {
+
+            return FALSE;
+        }
+    }
+    public function updateCurrentPlayer() {
+        $query = "UPDATE  `game_session` SET "
+                . "`current_player` ='" . $this->current_player . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();

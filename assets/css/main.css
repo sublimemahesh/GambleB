@@ -2252,6 +2252,9 @@ Footer Area
     z-index: 1;
     background: #2D0D6B;
     overflow: hidden;
+    background-image: url(../../images/background.jpg) no-repeat center;
+    background-image: linear-gradient(to bottom, rgba(45, 13, 107, 0.52), rgba(45, 13, 107, 1)), url('../../images/background.jpg');
+    background-size: cover;
 }
 
 .footer-area::after {
@@ -2261,7 +2264,7 @@ Footer Area
     bottom: -100px;
     width: 523px;
     height: 396px;
-    background: url("../images/footer-bottom-1.png") no-repeat;
+    /*background: url("../images/footer-bottom-1.png") no-repeat;*/
     opacity: 0.1;
 }
 
@@ -2272,7 +2275,7 @@ Footer Area
     bottom: -300px;
     width: 800px;
     height: 750px;
-    background: url("../images/about.png") no-repeat;
+    /*background: url("../images/about.png") no-repeat;*/
     opacity: 0.1;
 }
 
@@ -2472,11 +2475,10 @@ Hero Area
 .hero-area::before {
     position: absolute;
     content: "";
-    width: 950px;
-    height: 950px;
-    right: 0px;
+    width: 100%;
+    height: 988px;
     top: -50px;
-    background: url(../images/hero-bg.png);
+    background: url(../../images/background.jpg) no-repeat center;
 }
 
 @media (max-width: 991px) {
@@ -3754,9 +3756,9 @@ Breadcrumb area
     content: "";
     right: 0px;
     top: 0px;
-    width: 699px;
+    width: 1920px;
     height: 573px;
-    background: url("../images/banner-right.png") no-repeat;
+    background: url("../../images/background.jpg") no-repeat center;
     opacity: 0.3;
 }
 

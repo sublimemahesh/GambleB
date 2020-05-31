@@ -11,7 +11,7 @@ $(document).ready(function () {
     }//end object constructor Cube
 
     Cube.prototype.toggleCube = function () {
-        $("#toggle-rotate").on("click", function () {
+        $(".inplay-details").on("click", "#toggle-rotate", function () {
 
             /*
              change button value to start if reads 
@@ -22,6 +22,32 @@ $(document).ready(function () {
             if (toggle === "start") {
 
                 toggle = "stop";
+                var session = $(this).attr("session");
+                $.ajax({
+                    url: "post-and-get/ajax/group-members.php",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {
+                        session: session,
+                        action: "UPDATECURRENTMEMBER"
+                    },
+                    success: function (data) {
+                        var html = "";
+                        if (data == 'error') {
+
+                        } else {
+                            if(data.sort == 1) {
+                                var prev = data.count;
+                            } else {
+                                var prev = parseInt(data.sort) - 1;
+                            }
+                            
+                            
+                            $('.btn-' + data.sort).removeAttr('disabled');
+                            $('.btn-' + prev).attr('disabled');
+                        }
+                    }
+                });
 
             } else if (toggle === "stop") {
 

@@ -27,13 +27,21 @@ $(document).ready(function () {
                     html += '<div class="text">';
                     html += '<h4>' + result.name + '</h4>';
                     html += '</div>';
+                    
                     html += '<div class="ball active-ball ' + result.is_online + '">';
-                    html += '<a href="#"></a>';
+                    if (result.is_online == 0) {
+                        html += '<span>Left</span>';
+                    } else if(result.is_online == "1" && result.current_player === result.sort) {
+                        html +=  '<input id="toggle-rotate" class="bttn-small btn-fill btn-' + result.sort + '" type ="button" value ="start">';
+                    } else {
+                        html += '<input id="toggle-rotate" class="bttn-small btn-fill btn-' + result.sort + '" disabled type ="button" value ="start">';
+                    }
+                    
                     html += '</div>';
                     html += '</div>';
                 });
                 } else {
-                    html += '<h5>No any members in this group.</h5>';
+                    html += '<h5></h5>';
                 }
                 $('.inplay-details').empty();
                 $('.inplay-details').append(html);

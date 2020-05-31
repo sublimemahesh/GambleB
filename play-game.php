@@ -47,7 +47,7 @@ $GAME = new Game($GROUP->game);
         ?>
 
         <!--breadcrumb area-->
-        <section class="breadcrumb-area blue-overlay" style="background: url('assets/images/banner/3.jpg');">
+        <section class="breadcrumb-area blue-overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -82,13 +82,13 @@ $GAME = new Game($GROUP->game);
 
                             <?php
                             $members = GameSessionMembers::getMembersByGameSession($_SESSION['game_session']);
+                            $GMSESSION = new GameSession($_SESSION['game_session']);
+                            
                             if ($members) {
                                 foreach ($members as $member) {
                                     $MEM = new Member($member['member']);
                                     $active = '';
-                                    if ($member['is_online'] == 1) {
-                                        $active = 'active';
-                                    }
+
                                     if ($MEM->id == $_SESSION['id']) {
                                         $name = 'You';
                                     } else {
@@ -113,7 +113,24 @@ $GAME = new Game($GROUP->game);
                                             <h4><?php echo $name; ?></h4>
                                         </div>
                                         <div class="ball active-ball <?php echo $active; ?>">
-                                            <a href="#"></a>
+                                            <?php
+                                            
+                                            if ($member['is_online'] == 0) {
+                                                ?>
+                                                <span>Left</span>
+                                                <?php
+                                            } elseif ($member['is_online'] == 1 && $GMSESSION->current_player === $member['sort']) {
+                                                ?>
+                                                <input id="toggle-rotate" class="bttn-small btn-fill btn-<?php echo $member['sort']; ?>" type ="button" value ="start">
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <input id="toggle-rotate" class="bttn-small btn-fill btn-<?php echo $member['sort']; ?>" disabled type ="button" value ="start">
+                                                <?php
+                                            }
+                                            ?>
+
+
                                         </div>
                                     </div>
                                     <?php
@@ -197,5 +214,6 @@ $GAME = new Game($GROUP->game);
         <script src="js/game_session_members.js" type="text/javascript"></script>
         <script src="js/game-session.js" type="text/javascript"></script>
         <script src="js/dice-roll.js" type="text/javascript"></script>
+    <!--test-->    
     </body>
 </html>
